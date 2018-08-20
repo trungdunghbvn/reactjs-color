@@ -1,23 +1,21 @@
 
 var webpack = require('webpack');
 var path = require('path');
-//Thư mục sẽ chứa tập tin được biên dịch
-var BUILD_DIR = path.resolve(__dirname, 'src/client/public');
-//Thư mục chứa dự án - các component React
-var APP_DIR = path.resolve(__dirname, 'src/client/app');
- 
+
+var BUILD_DIR = path.resolve(__dirname, 'dist');
+var APP_DIR = path.resolve(__dirname, 'src');
+
 var config = {
   resolve: {
-        extensions: [ '.js', '.jsx']
+    extensions: [ '.js', '.jsx']
   },
   entry: APP_DIR + '/index.js',
   output: {
     path: BUILD_DIR,
-    filename: 'bundle.js'
+    filename: 'build.js'
   },
-//Thêm 
   module : {
-    loaders : [
+    rules : [
       {
         test : /\.jsx?/,
         include : APP_DIR,
@@ -25,7 +23,6 @@ var config = {
       }
     ]
   }
-//Kết thúc Thêm
 };
- 
+
 module.exports = config;
